@@ -1,4 +1,5 @@
 # implementation of gradient descent form scratch
+# in this we start at any position and move into any random direction in negative direction of the graident function 
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -20,33 +21,9 @@ def deriv(x):
 
 def step(x_new, x_prev, precision, l_r):
     
-    '''
-    Description: This function takes in an initial or previous value for x, updates it based on 
-    steps taken via the learning rate and outputs the most minimum value of x that reaches the precision satisfaction.
-    
-    Arguments:
-    
-    x_new - a starting value of x that will get updated based on the learning rate
-    
-    x_prev - the previous value of x that is getting updated to the new one
-    
-    precision - a precision that determines the stop of the stepwise descent 
-    
-    l_r - the learning rate (size of each descent step)
-    
-    Output:
-    
-    1. Prints out the latest new value of x which equates to the minimum we are looking for
-    2. Prints out the the number of x values which equates to the number of gradient descent steps
-    3. Plots a first graph of the function with the gradient descent path
-    4. Plots a second graph of the function with a zoomed in gradient descent path in the important area
-    
-    '''
-    
     # create empty lists where the updated values of x and y wil be appended during each iteration
-    
     x_list, y_list = [x_new], [function(x_new)]
-    # keep looping until your desired precision
+    # keep looping until our desired precision
     while abs(x_new - x_prev) > precision:
         
         # change the value of x
